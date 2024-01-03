@@ -34,12 +34,18 @@ SELECT title, length
 FROM film 
 ORDER BY length DESC 
 LIMIT 10;
-Use filtering techniques in order to:
 
-7.1 Retrieve all actors with the first name "SCARLETT".
-BONUS:
 
-7.2 Retrieve all movies that have ARMAGEDDON in their title and have a duration longer than 100 minutes.
+-- 7.1 Retrieve all actors with the first name "SCARLETT".
 
-Hint: use LIKE operator. More information here.
-7.3 Determine the number of films that include Behind the Scenes content
+Select  concat(first_name ," " , last_name) from actor
+where first_name LIKE "SCARLETT" ;
+
+-- 7.2 Retrieve all movies that have ARMAGEDDON in their title and have a duration longer than 100 minutes.
+Select title from film
+where title like "%ARMAGEDDON%" and length > 100 ;
+
+-- Hint: use LIKE operator. More information here.
+-- 7.3 Determine the number of films that include Behind the Scenes content
+Select count(title) from film
+where special_features like "Behind the Scenes";
